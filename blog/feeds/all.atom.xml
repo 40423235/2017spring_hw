@@ -1,5 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>2017Spring 協同產品設計實習 (虎尾科大MDE)</title><link href="./" rel="alternate"></link><link href="./feeds/all.atom.xml" rel="self"></link><id>./</id><updated>2017-02-22T11:00:00+08:00</updated><entry><title>20170222 Week 1</title><link href="./Week%201.html" rel="alternate"></link><published>2017-02-22T11:00:00+08:00</published><updated>2017-02-22T11:00:00+08:00</updated><author><name>40423235</name></author><id>tag:,2017-02-22:./Week 1.html</id><summary type="html">&lt;h2&gt;修改 stunnel.conf 的 IP 設定&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>2017Spring 協同產品設計實習 (虎尾科大MDE)</title><link href="./" rel="alternate"></link><link href="./feeds/all.atom.xml" rel="self"></link><id>./</id><updated>2017-03-01T11:00:00+08:00</updated><entry><title>20170301 Week 2</title><link href="./Week%202.html" rel="alternate"></link><published>2017-03-01T11:00:00+08:00</published><updated>2017-03-01T11:00:00+08:00</updated><author><name>40423235</name></author><id>tag:,2017-03-01:./Week 2.html</id><summary type="html">&lt;h2&gt;分組座位原始碼&lt;/h2&gt;
+&lt;pre class="brush: python"&gt;
+
+&lt;h1&gt;import os&lt;/h1&gt;
+&lt;p&gt;adata = open("w2b_cadlab.txt", encoding="utf-8").read()&lt;/p&gt;
+&lt;h1&gt;讀取w2b_cadlab.txt 檔案,讓裡面的內容成為資料, 因為檔案裡有中文, 所以設定encoding 使用utf-8 的編驛碼&lt;/h1&gt;
+&lt;p&gt;rdata = open("w2b_registered.txt", encoding="utf-8").read().splitlines()&lt;/p&gt;
+&lt;h1&gt;print(adata)&lt;/h1&gt;
+&lt;h1&gt;用print 先檢查資料是否是我們需要的&lt;/h1&gt;
+&lt;p&gt;alist = adata.splitlines()&lt;/p&gt;
+&lt;h1&gt;利用splitlines 的方法把資料隔開, 就可以得到一個特定的數列&lt;/h1&gt;
+&lt;h1&gt;print(alist[2])&lt;/h1&gt;
+&lt;p&gt;n = 0
+row = 0
+final_list = []
+w2_list = []
+for stud_num in alist[2:]:&lt;/p&gt;
+&lt;h1&gt;從第2列開始, 因為第0列和第1列都不是我們要的&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;row = row + 1
+blist = stud_num.split(&amp;quot;\t&amp;quot;)
+#print(blist)
+column = 0
+#為了避免序號連續, 利用column = 0 將順序重製, 因為每一列算完之後要換下一列重新開始
+for i in range(len(blist)):
+    column = column + 1
+    if blist[i] != &amp;quot;&amp;quot;:
+        #print(blist[i])
+        clist = blist[i].split(&amp;quot;_&amp;quot;)
+        stud_data = clist[0]+&amp;quot;_&amp;quot;+clist[1]+&amp;quot;_&amp;quot;+str(row)+&amp;quot;_&amp;quot;+str(column)
+        final_list.append(stud_data)
+        w2_list.append(clist[1])
+        n = n +1
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;根據數列前導字串排序, 目的在建立分組數列&lt;/h1&gt;
+&lt;p&gt;group_list = sorted(final_list)
+print("分組名單:")
+for i in range(len(group_list)):
+    print(group_list[i])
+print("座位列表:")
+for i in range(len(final_list)):
+    print(final_list[i])
+for i in range(len(rdata)):
+    if rdata[i] not in w2_list:
+        print("缺席學生:", rdata[i])
+print("學生總數:", n)&lt;/p&gt;
+&lt;h1&gt;print(os.environ)&lt;/h1&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;利用 Solvespace 畫出四連桿機構, 觀察該機構的運動方式。&lt;p&gt;
+&lt;iframe src="https://player.vimeo.com/video/212617306" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href="https://vimeo.com/212617306"&gt;觀察四連趕運動方式&lt;/a&gt; from &lt;a href="https://vimeo.com/user64041155"&gt;40423235&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;心得:這週的作業是用solvespace畫出四連桿機構，過程中請教朋友滿多次的，也一直畫錯，最後還是成功畫出來了。&lt;p&gt;</summary><category term="SolveSpace"></category></entry><entry><title>20170222 Week 1</title><link href="./Week%201.html" rel="alternate"></link><published>2017-02-22T11:00:00+08:00</published><updated>2017-02-22T11:00:00+08:00</updated><author><name>40423235</name></author><id>tag:,2017-02-22:./Week 1.html</id><summary type="html">&lt;h2&gt;修改 stunnel.conf 的 IP 設定&lt;/h2&gt;
 &lt;p&gt;&lt;iframe src="https://player.vimeo.com/video/208011998" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
 &lt;p&gt;&lt;a href="https://vimeo.com/208011998"&gt;設定 stunnel.conf&lt;/a&gt; from &lt;a href="https://vimeo.com/user64041155"&gt;40423235&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;
 &lt;p&gt;心得:這學期有開始請教同學學習到滿多東西的，這禮拜的作業是修改stunnel的ip，還算ok。&lt;p&gt;</summary><category term="Stunnel"></category></entry><entry><title>Fossil SCM 簡介</title><link href="./intro-fossil-scm.html" rel="alternate"></link><published>2017-02-17T11:00:00+08:00</published><updated>2017-02-17T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:,2017-02-17:./intro-fossil-scm.html</id><summary type="html"></summary><category term="fossil-scm"></category><category term="w2"></category></entry><entry><title>V-rep 簡介</title><link href="./vrep-introduction.html" rel="alternate"></link><published>2017-02-09T11:00:00+08:00</published><updated>2017-02-09T11:00:00+08:00</updated><author><name>yen</name></author><id>tag:,2017-02-09:./vrep-introduction.html</id><summary type="html">&lt;p&gt;V-rep (Virtual robot experimentation platform)&lt;/p&gt;
